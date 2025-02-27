@@ -8,9 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
+
 
 class ProfileController extends Controller
 {
+
+    public function show(User $user = null): View
+    {
+        if (!$user || $user->id === Auth::id()) {
+            $user = Auth::user();
+        }
+        return view('dashboard',compact('user'));
+    }
+
     /**
      * Display the user's profile form.
      */
