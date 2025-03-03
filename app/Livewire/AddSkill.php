@@ -10,23 +10,19 @@ use Illuminate\Support\Facades\Auth;
 class AddSkill extends ModalComponent
 {
     public $name;
-    public $category;
 
     protected $rules = [
         'name' => 'required|min:2|max:50',
-        'category' => 'required|in:Language,Framework,Tool,Other'
     ];
-
     public function save()
     {
         $this->validate();
 
         $skill = Skill::firstOrCreate(
-            ['name' => $this->name],
-            ['category' => $this->category]
+            ['name' => $this->name]
         );
 
-        Auth::user()->skills()->syncWithoutDetaching([$skill->id]);
+        Auth::user->skills()->syncWithoutDetaching([$skill->id]);
 
         $this->closeModal();
         $this->dispatch('skill-added');

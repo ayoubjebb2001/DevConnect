@@ -1,4 +1,10 @@
-<div class="p-6">
+<div class="p-6" 
+x-transition:enter="transition ease-out duration-300"
+x-transition:enter-start="opacity-0 scale-90"
+x-transition:enter-end="opacity-100 scale-100"
+x-transition:leave="transition ease-in duration-300"
+x-transition:leave-start="opacity-100 scale-100"
+x-transition:leave-end="opacity-0 scale-90">
     <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Add New Skill</h2>
     
     <form wire:submit="save">
@@ -9,20 +15,6 @@
                 <x-text-input wire:model="name" id="name" type="text" class="mt-1 block w-full" required />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
-
-            <!-- Category -->
-            <div>
-                <x-input-label for="category" :value="__('Category')" />
-                <select wire:model="category" id="category" class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
-                    <option value="">Select a category</option>
-                    <option value="Language">Programming Language</option>
-                    <option value="Framework">Framework</option>
-                    <option value="Tool">Tool</option>
-                    <option value="Other">Other</option>
-                </select>
-                <x-input-error :messages="$errors->get('category')" class="mt-2" />
-            </div>
-
             <div class="flex justify-end mt-6">
                 <x-secondary-button type="button" wire:click="$dispatch('closeModal')" class="mr-3">
                     Cancel

@@ -1,9 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
+            Profile
         </h2>
     </x-slot>
+    <livewire:add-skill />
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -29,11 +30,11 @@
                                 <!-- Follow/Edit Button -->
                                 @if(Auth::id() === $user->id)
                                     <a href="{{ route('profile.edit') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                                        {{ __('Edit Profile') }}
+                                        Edit Profile
                                     </a>
                                 @else
                                     <button class="inline-flex items-center px-4 py-2 bg-blue-600 dark:bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                        {{ __('Follow') }}
+                                        Follow
                                     </button>
                                 @endif
                             </div>
@@ -49,7 +50,7 @@
                                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
-                                        {{ __('Joined') }} {{ $user->created_at->diffForHumans() }}
+                                        Joined {{ $user->created_at->diffForHumans() }}
                                     </div>
 
                                     <div class="flex items-center">
@@ -93,7 +94,7 @@
                             <div class="flex justify-between items-center mb-4">
                                 <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Skills</h2>
                                 @if(Auth::id() === $user->id)
-                                    <button wire:click="$dispatch('openModal', { component: 'AddSkill' })" 
+                                    <button wire:click="$dispatch('showModal', { component: 'add-skill' })" 
                                             class="inline-flex items-center px-3 py-1 bg-blue-600 dark:bg-blue-500 border border-transparent rounded-md text-xs text-white uppercase tracking-widest hover:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150">
                                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>

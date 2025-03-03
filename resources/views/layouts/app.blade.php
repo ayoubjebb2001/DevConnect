@@ -37,7 +37,8 @@
         
                 <!-- Livewire Scripts -->
                 @livewireScripts
-    
+                @livewire('livewire-ui-modal')
+                
                 <!-- Modal Scripts -->
                 @stack('scripts')
     </body>
