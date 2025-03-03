@@ -14,11 +14,9 @@ use App\Models\User;
 class ProfileController extends Controller
 {
 
-    public function show(User $user = null): View
+    public function show(): View
     {
-        if (!$user || $user->id === Auth::id()) {
-            $user = Auth::user();
-        }
+        $user = Auth::user()->load('posts');
         return view('dashboard',compact('user'));
     }
 
