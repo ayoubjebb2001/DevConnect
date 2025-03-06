@@ -21,10 +21,13 @@ class LikePost extends Component
         if ($this->liked) {
             $this->post->likes()->where('user_id', Auth::id())->delete();
             $this->liked = false;
+          
         } else {
             $this->post->likes()->create(['user_id' => Auth::id()]);
             $this->liked = true;
+    
         }
+        $this->post->refresh();
     }
     public function render()
     {

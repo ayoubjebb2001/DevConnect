@@ -1,6 +1,6 @@
 <div>
     <div class="space-y-4">
-        @foreach($comments as $comment)
+        @foreach($post->comments as $comment)
             <div class="flex space-x-3">
                 <img class="h-8 w-8 rounded-full" src="{{ $comment->user->avatarUrl }}" alt="{{ $comment->user->name }}">
                 <div class="flex-1">

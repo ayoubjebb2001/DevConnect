@@ -43,8 +43,8 @@
         <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
             <div class="flex space-x-4">
                 <livewire:like-post :post="$post" :key="'like-'.$post->id" />
-                <livewire:comment-post :post="$post" :key="'comment-'.$post->id" />
             </div>
         </div>
+        <livewire:comment-post :post="$post" :key="'comment-'.$post->id" />
     </div>
 </div>

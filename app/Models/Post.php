@@ -13,7 +13,10 @@ class Post extends Model
         'links',
         'image'
     ];
-
+    protected $with = ['hashtags',
+        'likes',
+        'comments'
+    ];
     public function user() {
         return $this->belongsTo(User::class);
     }
@@ -30,6 +33,6 @@ class Post extends Model
 
     public function hashtags()
     {
-        return $this->belongsToMany(Hashtag::class);
+        return $this->belongsToMany(Hashtag::class,'hashtag_post','post_id');
     }
 }

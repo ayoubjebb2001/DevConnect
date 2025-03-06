@@ -60,6 +60,30 @@ class User extends Authenticatable
     }
 
     public function connections(){
-        return $this->hasMany(Connection::class,'receiver_id');
+        return $this->hasMany(Connection::class,'receiver_id')->where('status', 'accepted') ->orWhere(function($query) {
+            $query->where('sender_id', $this->id)
+                ->where('status', 'accepted');
+        });
+    }
+
+    public function pendingconnections(){
+        return $this->hasMany(Connection::class, 'receiver_id')
+            ->where('status', 'pending')
+            ->orWhere(function($query) {
+                $query->where('sender_id', $this->id)
+                    ->where('status', 'pending');
+            });
+    }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function sentConnections(){
+        return $this->hasMany(Connection::class, 'sender_id');
     }
 }

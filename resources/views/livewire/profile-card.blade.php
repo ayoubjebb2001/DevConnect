@@ -1,3 +1,4 @@
+
 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden transition-colors duration-200">
     <div class="bg-gray-100 dark:bg-gray-700 h-32 transition-colors duration-200"></div>
     <div class="p-6">

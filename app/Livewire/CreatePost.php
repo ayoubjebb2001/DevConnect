@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use App\Models\Hashtag;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 
@@ -30,6 +31,15 @@ class CreatePost extends Component
     {
         $validated = $this->validate($this->rules);
         $post = auth()->user()->posts()->create($validated);
+        if ($this->hashtags) {
+            $hashtagArray = array_map('trim', explode(',', $this->hashtags));
+            foreach ($hashtagArray as $tag) {
+                $hashtag = Hashtag::firstOrCreate([
+                    'name' => strtolower($tag)
+                ]);
+                $post->hashtags()->attach($hashtag->id);
+            }
+        }
 
         if ($this->image) {
             $post->image = $this->image->store('images', 'public');

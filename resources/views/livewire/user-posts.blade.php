@@ -49,7 +49,7 @@
                                  alt="Post image" 
                                  class="rounded-lg w-full object-cover max-h-96">
                         @endif
-
+                        @if($post->hashtags)
                         <div class="flex flex-wrap gap-2">
                             @foreach($post->hashtags as $tag)
                                 <span class="text-sm text-blue-600 dark:text-blue-400 hover:underline">
@@ -57,6 +57,7 @@
                                 </span>
                             @endforeach
                         </div>
+                        @endif
 
                         @if($post->links)
                             <div class="flex items-center space-x-2 text-sm text-blue-600 dark:text-blue-400">
@@ -74,9 +75,9 @@
                     <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
                         <div class="flex space-x-4">
                             <livewire:like-post :post="$post" :key="'like-'.$post->id" />
-                            <livewire:comment-post :post="$post" :key="'comment-'.$post->id" />
                         </div>
                     </div>
+                    <livewire:comment-post :post="$post" :key="'comment-'.$post->id" />
                 </div>
             </div>
         @endforeach
