@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto pt-20 px-4">
+    <div class="max-w-7xl mx-auto pt-20 px-4 bg-gray-100 dark:bg-gray-900 min-h-screen transition-colors duration-200">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <!-- Left Sidebar -->
             <div class="space-y-6">

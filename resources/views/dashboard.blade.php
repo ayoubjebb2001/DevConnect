@@ -4,7 +4,7 @@
             Profile
         </h2>
     </x-slot>
-    <div class="py-12">
+    <div class="py-12 bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Profile Section -->

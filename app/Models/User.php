@@ -60,6 +60,6 @@ class User extends Authenticatable
     }
 
     public function connections(){
-        return $this->hasMany(Connecion::class);
+        return $this->hasMany(Connection::class,'receiver_id');
     }
 }
