@@ -10,12 +10,26 @@ class Post extends Model
         'title',
         'content',
         'user_id',
-        'hashtags',
         'links',
         'image'
     ];
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+    
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function hashtags()
+    {
+        return $this->belongsToMany(Hashtag::class);
     }
 }

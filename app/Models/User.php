@@ -58,4 +58,8 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    public function connections(){
+        return $this->hasMany(Connecion::class);
+    }
 }
