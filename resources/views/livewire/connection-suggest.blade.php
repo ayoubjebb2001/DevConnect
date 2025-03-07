@@ -4,7 +4,7 @@
         @foreach($suggestions as $user)
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700">
+                    <img src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : 'https://ui-avatars.com/api/?name='.urlencode(Auth::user()->name) }}" alt="{{ $user->name }}" class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700">
                     <div>
                         <h4 class="font-medium text-gray-900 dark:text-gray-100">{{ $user->name }}</h4>
                         <p class="text-gray-500 dark:text-gray-400 text-sm">{{ $user->title }}</p>

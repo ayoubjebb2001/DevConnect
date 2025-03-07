@@ -2,7 +2,7 @@
     <div class="space-y-4">
         @foreach($post->comments as $comment)
             <div class="flex space-x-3">
-                <img class="h-8 w-8 rounded-full" src="{{ $comment->user->avatarUrl }}" alt="{{ $comment->user->name }}">
+                <img class="h-8 w-8 rounded-full" src="{{ $comment->user->avatar ? Storage::url($comment->user->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($comment->user->name) }}"" alt="{{ $comment->user->name }}">
                 <div class="flex-1">
                     <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3">
                         <div class="font-medium">{{ $comment->user->name }}</div>

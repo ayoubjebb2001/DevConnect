@@ -16,8 +16,8 @@ class ProfileController extends Controller
 
     public function show(): View
     {
-        $user = Auth::user()->with('posts.hashtags')->first();
-        return view('dashboard',compact('user'));
+        $user = Auth::user()->with('posts')->first();
+        return view('dashboard', compact('user'));
     }
 
     /**

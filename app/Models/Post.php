@@ -13,10 +13,13 @@ class Post extends Model
         'links',
         'image'
     ];
-    protected $with = ['hashtags',
+    protected $with= ['hashtags',
         'likes',
         'comments'
     ];
+
+
+    
     public function user() {
         return $this->belongsTo(User::class);
     }

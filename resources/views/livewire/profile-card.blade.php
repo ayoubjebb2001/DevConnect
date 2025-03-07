@@ -3,7 +3,7 @@
     <div class="bg-gray-100 dark:bg-gray-700 h-32 transition-colors duration-200"></div>
     <div class="p-6">
         <div class="relative -mt-16">
-            <img src="{{ $user->avatar }}" alt="{{ $user->name }}" 
+            <img src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : 'https://ui-avatars.com/api/?name='.urlencode(Auth::user()->name) }}" alt="{{ $user->name }}" 
                  class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800 object-cover">
         </div>
         <div class="mt-3">

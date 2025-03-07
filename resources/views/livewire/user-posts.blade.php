@@ -10,7 +10,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                             <img class="h-10 w-10 rounded-full object-cover" 
-                                 src="{{ $post->user->avatarUrl }}" 
+                                 src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : 'https://ui-avatars.com/api/?name='.urlencode(Auth::user()->name) }}" 
                                  alt="{{ $post->user->name }}">
                             <div>
                                 <h3 class="font-medium text-gray-900 dark:text-gray-100">{{ $post->user->name }}</h3>
@@ -39,8 +39,8 @@
                     </div>
 
                     <div class="space-y-4">
-                        <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">{{ $post->title }}</h2>
-                        <div class="prose dark:prose-invert max-w-none">
+                        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">{{ $post->title }}</h2>
+                        <div class="prose dark:prose-invert dark:text-gray-100">
                             {!! $post->content !!}
                         </div>
 
