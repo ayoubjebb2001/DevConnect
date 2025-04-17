@@ -13,7 +13,7 @@ class ProfileStats extends Component
             'posts' => Auth::user()->posts()->count(),
             'connections' => Auth::user()->connections()->count(),
             'skills' => Auth::user()->skills()->count(),
-            'projects' => Auth::user()->projects
+            'projects' => count(json_decode(Auth::user()->projects,true))
         ];
         return view('livewire.profile-stats',['stats' => $stats]);
     }

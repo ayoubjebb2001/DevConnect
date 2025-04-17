@@ -23,6 +23,7 @@ class AddProject extends ModalComponent
         $projects = json_decode($user->projects ?? '[]', true);
         
         $projects[] = [
+            'id' => count($projects) ,
             'name' => $this->title,
             'description' => $this->description
         ];

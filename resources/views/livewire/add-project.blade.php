@@ -1,4 +1,4 @@
-<div class="p-6">
+<div class="p-6 dark:bg-gray-800 bg-white rounded-lg shadow-md">
     <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Add New Project</h2>
     
     <form wire:submit="save">

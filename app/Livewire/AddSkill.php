@@ -6,7 +6,6 @@ use LivewireUI\Modal\ModalComponent;
 use App\Models\Skill;
 use Illuminate\Support\Facades\Auth;
 
-
 class AddSkill extends ModalComponent
 {
     public $name;
@@ -22,7 +21,7 @@ class AddSkill extends ModalComponent
             ['name' => $this->name]
         );
 
-        Auth::user->skills()->syncWithoutDetaching([$skill->id]);
+        Auth::user()->skills()->syncWithoutDetaching([$skill->id]);
 
         $this->closeModal();
         $this->dispatch('skill-added');

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CommentPost extends Component
@@ -28,8 +29,10 @@ class CommentPost extends Component
         ]);
 
         $this->content = '';
-        $this->dispatch('commentAdded');
+        $this->dispatch('comment-added');
     }
+    #[On('comment-added')]
+    
     public function render()
     {
         return view('livewire.comment-post');

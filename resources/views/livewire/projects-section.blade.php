@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4">
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 dark:text-gray-50">
     <div class="flex items-center justify-between mb-4">
         <h3 class="font-semibold">Projects</h3>
         @if(auth()->id() === $user->id)
@@ -10,23 +10,17 @@
             </button>
         @endif
     </div>
-    @if($projects)
+    @if(!empty($projects))
     <div class="space-y-4">
         @foreach($projects as $project)
             <div class="border-b border-gray-200 dark:border-gray-700 last:border-0 pb-4 last:pb-0">
                 <div class="flex justify-between items-start">
                     <div>
-                        <h4 class="font-medium">{{ $project->title }}</h4>
-                        <p class="text-sm text-gray-500">{{ $project->description }}</p>
-                        @if($project->url)
-                            <a href="{{ $project->url }}" target="_blank" 
-                               class="text-sm text-blue-600 hover:underline dark:text-blue-400">
-                                View Project
-                            </a>
-                        @endif
+                        <h4 class="font-medium">{{ $project['name'] }}</h4>
+                        <p class="text-sm text-gray-500">{{ $project['description'] }}</p>
                     </div>
                     @if(auth()->id() === $user->id)
-                        <button wire:click="deleteProject({{ $project->id }})" 
+                        <button wire:click="deleteProject({{ $project['id'] }})" 
                                 class="text-red-600 hover:text-red-800">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 

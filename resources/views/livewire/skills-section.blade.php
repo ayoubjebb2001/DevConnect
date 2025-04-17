@@ -1,6 +1,6 @@
 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4">
     <div class="flex items-center justify-between mb-4">
-        <h3 class="font-semibold">Skills</h3>
+        <h3 class="font-semibold text-gray-100  ">Skills</h3>
         @if(auth()->id() === $user->id)
             <button onclick="Livewire.dispatch('openModal', { component: 'add-skill' })"
                     class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">

@@ -1,4 +1,4 @@
-<div class="p-6" 
+<div class="p-6 dark:bg-gray-800 bg-white rounded-lg shadow-md"
 x-transition:enter="transition ease-out duration-300"
 x-transition:enter-start="opacity-0 scale-90"
 x-transition:enter-end="opacity-100 scale-100"

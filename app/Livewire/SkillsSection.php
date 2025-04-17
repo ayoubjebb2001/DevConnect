@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class SkillsSection extends Component
@@ -22,7 +23,7 @@ class SkillsSection extends Component
             $this->dispatch('skill-removed');
         }
     }
-
+    #[On('skill-added')]
     public function render()
     {
         return view('livewire.skills-section', [
